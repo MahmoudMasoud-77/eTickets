@@ -1,6 +1,6 @@
 ﻿namespace eTickets.Data.Enums
 {
-    public enum MovieCatgory
+    public enum MovieCategory
     {
         Action = 1,
         Comedy,
@@ -11,6 +11,7 @@
         Mystery,
         Romance,
         Thriller,
-        Western
+        Western,
+        Cartoon
     }
 }

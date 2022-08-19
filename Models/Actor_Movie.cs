@@ -5,8 +5,8 @@ namespace eTickets.Models
 {
     public class Actor_Movie
     {
-        public int Movie_Id { get; set; }
-        public int  Actor_Id { get; set; }
+        public int MovieId { get; set; }
+        public int ActorId { get; set; }
 
         public virtual Movie movie { get; set; }
         public virtual Actor actor { get; set; }

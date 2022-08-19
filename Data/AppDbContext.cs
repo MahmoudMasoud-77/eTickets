@@ -22,13 +22,13 @@ namespace eTickets.Data
         {
             modelBuilder.Entity<Actor_Movie>().HasKey(am => new
             {
-                am.Movie_Id,
-                am.Actor_Id
+                am.MovieId,
+                am.ActorId
             });
-            modelBuilder.Entity<Actor_Movie>().HasOne(m => m.movie).WithMany(am =>am.Actor_Movies)
-                .HasForeignKey(m =>m.Movie_Id);
-            modelBuilder.Entity<Actor_Movie>().HasOne(m => m.actor).WithMany(am => am.Actor_Movies)
-                .HasForeignKey(m => m.Actor_Id);
+            modelBuilder.Entity<Actor_Movie>().HasOne(m => m.movie).WithMany(am =>am.Actors_Movies)
+                .HasForeignKey(m =>m.MovieId);
+            modelBuilder.Entity<Actor_Movie>().HasOne(m => m.actor).WithMany(am => am.Actors_Movies)
+                .HasForeignKey(m => m.ActorId);
             base.OnModelCreating(modelBuilder);
         }
 
@@ -36,7 +36,7 @@ namespace eTickets.Data
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Cinema> Cinemies { get; set; }
         public DbSet<Producer> Producers { get; set; }
-        public DbSet<Actor_Movie> Actor_Movies { get; set; }
+        public DbSet<Actor_Movie> Actors_Movies { get; set; }
 
 
     }
