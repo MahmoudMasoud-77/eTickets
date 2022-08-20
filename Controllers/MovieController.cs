@@ -1,20 +1,22 @@
-﻿using eTickets.Models;
+﻿using eTickets.Data;
+using eTickets.Models;
 using eTickets.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace eTickets.Controllers
 {
     public class MovieController : Controller
     {
-        private readonly MovieRepository MovieRepo;
+        private readonly AppDbContext context;
 
-        public MovieController(MovieRepository _MovieRepo)
+        public MovieController(AppDbContext _context)
         {
-            this.MovieRepo = _MovieRepo;
+            this.context = _context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Movie> allItem = MovieRepo.GetAll();
+            List<Movie> allItem = await context.Movies.ToListAsync();
             return View(allItem);
         }
     }

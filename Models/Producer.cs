@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eTickets.Models
 {
@@ -9,8 +10,11 @@ namespace eTickets.Models
             movies = new List<Movie> ();
         }
         public int Id { get; set; }
+        [Display(Name = "Profile Picture")]
         public string ProfilePictureURL { get; set; }
+        [Display(Name = "Full Name")]
         public string FullName { get; set; }
+        [Display(Name = "Biography")]
         public string Bio { get; set; }
         //Relationships
         

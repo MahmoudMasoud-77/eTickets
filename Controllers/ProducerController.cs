@@ -1,20 +1,22 @@
-﻿using eTickets.Models;
+﻿using eTickets.Data;
+using eTickets.Models;
 using eTickets.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace eTickets.Controllers
 {
     public class ProducerController : Controller
     {
-        private readonly ProducerRepository ProducerRepo;
+        private readonly AppDbContext context;
 
-        public ProducerController(ProducerRepository _ProducerRepo)
+        public ProducerController(AppDbContext _context)
         {
-            this.ProducerRepo = _ProducerRepo;
+            this.context = _context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Producer> allItem = ProducerRepo.GetAll();
+            List<Producer> allItem = await context.Producers.ToListAsync(); ;
             return View(allItem);
         }
     }
