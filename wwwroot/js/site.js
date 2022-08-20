@@ -3,11 +3,13 @@
 
 // Write your JavaScript code.
 
-// Search
+// Search in Table
 
-    var searchBox = document.getElementById("myInput");
+var searchBox = document.getElementById("myInput");
+if (searchBox) {
     searchBox.addEventListener("keyup", function () {
-            var keyword = this.value;
+        var keyword = this.value;
+
     keyword = keyword.toUpperCase();
     var table_3 = document.getElementById("myTable");
     var all_tr = table_3.getElementsByTagName("tr");
@@ -26,4 +28,40 @@
                     }
                 }
             }
-        })
+    })
+}
+// Search in Cards
+//var searchFilter = () => {
+//    const input = document.querySelector(".form-control");
+//    const cards = document.getElementsByClassName("test");
+//    let filter = input.value
+//    for (let i = 0; i < cards.length; i++) {
+//        let title = cards[i].querySelector(".card-title");
+//        if (title.innerText.toLowerCase().indexOf(filter.toLowerCase()) > -1) {
+//            cards[i].classList.remove("d-none")
+//        } else {
+//            cards[i].classList.add("d-none")
+//        }
+//    }
+//}
+
+//var searchBoxMovie = document.getElementById("myInputCard");
+//if (searchBoxMovie) {
+//    searchBoxMovie.addEventListener("keyup", function () {
+//        const input = document.querySelector("#myInputCard");
+//        const cards = document.getElementsByClassName("card");
+//        let filter = input.value.toUpperCase()
+
+//        for (let i = 0; i < cards.length; i++) {
+//            let title = cards[i].querySelector(".card-title");
+//            if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+//                cards[i].style.display = "";
+//            } else {
+//                cards[i].style.display = "none";
+//            }
+//        }
+//    });
+
+//}
+
+
