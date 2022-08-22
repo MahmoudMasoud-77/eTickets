@@ -1,5 +1,5 @@
 using eTickets.Data;
-using eTickets.Repository;
+using eTickets.Data.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace eTickets
@@ -10,16 +10,14 @@ namespace eTickets
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-            builder.Services.AddScoped<IActorRepository, ActorRepository>();
-            builder.Services.AddScoped<IMovieRepository, MovieRepository>();
-            builder.Services.AddScoped<ICinemaRepository, CinemaRepository>();
-            builder.Services.AddScoped<IProduserRepository, ProducerRepository>();
-
+            // Add services to the container.           
             builder.Services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DB"));
             });
+
+            builder.Services.AddScoped<IActorsService, ActorService>();
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
