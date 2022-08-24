@@ -22,7 +22,7 @@ namespace eTickets.Controllers
         {
             var actor= await Service.GetByIdAsync(id);
             if(actor == null)
-                return View("Empty");
+                return View("NotFound");
             return View(actor);
         }
         //Get :Actor/Create
