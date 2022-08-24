@@ -20,6 +20,6 @@ namespace eTickets.Models
         public string Bio { get; set; }
         //Relationships
         
-        public virtual List<Movie> movies { get; set; }
+        public virtual List<Movie>? movies { get; set; }
     }
 }

@@ -13,6 +13,7 @@ namespace eTickets.Models
         public int Id { get; set; }
         [Display(Name = "Logo")]
         public string Logo { get; set; }
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Full Name must be between 3 and 50 chars")]
         [Display(Name = "Name")]
         public string Name { get; set; }
         [Display(Name = "Description")]
@@ -20,7 +21,7 @@ namespace eTickets.Models
 
         //Relationships
 
-        public virtual List<Movie> movies { get; set; }
+        public virtual List<Movie>? movies { get; set; }
 
     }
 }
