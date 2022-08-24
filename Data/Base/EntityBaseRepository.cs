@@ -15,6 +15,12 @@ namespace eTickets.Data.Base
         {
             return await context.Set<T>().ToListAsync();
         }
+        public async Task<List<T>> GetAllAsync(params Expression<Func<T, object>>[] includeProperties)
+        {
+            IQueryable<T> query = context.Set<T>();
+            query = includeProperties.Aggregate(query, (current, includeProperty) => current.Include(includeProperty));
+            return await query.ToListAsync();
+        }
 
         public async Task<T> GetByIdAsync(int id)
         {
