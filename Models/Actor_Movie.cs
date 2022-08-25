@@ -8,7 +8,7 @@ namespace eTickets.Models
         public int MovieId { get; set; }
         public int ActorId { get; set; }
 
-        public virtual Movie movie { get; set; }
-        public virtual Actor actor { get; set; }
+        public virtual Movie? movie { get; set; }
+        public virtual Actor? actor { get; set; }
     }
 }

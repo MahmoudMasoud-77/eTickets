@@ -20,7 +20,7 @@ namespace eTickets.Controllers
         //Get :Actor/Details/id
         public async Task<IActionResult> Details(int id)
         {
-            var item = await Service.GetByIdAsync(id);
+            var item = await Service.GetMovieByIdAsync(id);
             if (item == null)
                 return View("NotFound");
             return View(item);

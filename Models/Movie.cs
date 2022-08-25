@@ -23,8 +23,7 @@ namespace eTickets.Models
         public int ProducerId { get; set; }
         public virtual Cinema? cinema { get; set; }
         public virtual Producer? producer { get; set; }
-
-        public virtual List<Actor_Movie> Actors_Movies { get; set; }
+        public virtual List<Actor_Movie>? Actors_Movies { get; set; }
 
 
 
