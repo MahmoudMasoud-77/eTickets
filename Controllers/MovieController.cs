@@ -1,6 +1,8 @@
 ﻿using eTickets.Data.Services;
+using eTickets.Data.ViewModels;
 using eTickets.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace eTickets.Controllers
 {
@@ -14,7 +16,7 @@ namespace eTickets.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<Movie> allItems = await Service.GetAllAsync(n =>n.cinema);
+            List<Movie> allItems = await Service.GetAllAsync(n => n.cinema);
             return View(allItems);
         }
         //Get :Actor/Details/id
@@ -26,8 +28,13 @@ namespace eTickets.Controllers
             return View(item);
         }
         //Get :Actor/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            NewMovieDropdownVM newMovieDropdownVM = await Service.NewMovieDropdownsVal();
+            ViewBag.Cinemas = new SelectList(newMovieDropdownVM.cinemas, "Id", "Name");
+            ViewBag.Actors = new SelectList(newMovieDropdownVM.actors, "Id", "FullName");
+            ViewBag.Producers = new SelectList(newMovieDropdownVM.producers, "Id", "FullName");
+
             return View();
         }
         // POST: Actor/Create
