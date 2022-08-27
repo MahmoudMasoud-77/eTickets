@@ -1,4 +1,4 @@
-﻿@model IEnumerable<eTickets.Models.Movie>
+﻿@model IEnumerable<Movie>
 
 @{
     ViewData["Title"] = "Movies";
@@ -78,6 +78,8 @@
        </div>
    }
 </div>
+@*<partial name="_CreateItem" model="@Model" />*@
+@await Html.PartialAsync("_CreateItem","Movie")
 @section Scripts{
     <script>
         var searchFilter = () => {
